@@ -9,8 +9,8 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     font-family: "Inknut Antiqua", serif;
-    background: #f5f5f5;
-    color: #333;
+    background: ${({ theme }) => theme.colors.background};
+    color: ${({ theme }) => theme.colors.text};
     text-align: center;
   }
 `
