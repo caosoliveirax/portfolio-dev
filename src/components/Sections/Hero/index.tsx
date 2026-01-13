@@ -1,14 +1,22 @@
-import { HeroContainer, ProfileImage, Subtitle, Title } from "./styles"
-import profile from "../../../assets/profile.png"
+import * as S from './styles'
+import profile from '../../../assets/profile.png'
 
 export const Hero = () => {
   return (
-    <HeroContainer>
-      <ProfileImage src={profile} alt="Ícone de perfil" />
-      <Title>Olá, sou <span>Carlos Oliveira</span></Title>
-      <Subtitle>
-        Engenheiro de Software | Desenvolvedor Front-end
-      </Subtitle>
-    </HeroContainer>
+    <S.HeroContainer>
+      <div className="wrapper-left">
+        <S.Title>
+          Olá! <br /> Eu sou <span>Carlos Oliveira</span>
+        </S.Title>
+        <S.Description>
+          Onde a lógica exata encontra a criatividade. Crio soluções front-end robustas que fogem do
+          óbvio e cativam o usuário.
+        </S.Description>
+      </div>
+      <div className="wrapper-right">
+        <S.ProfileImage src={profile} alt="Ícone de perfil" />
+        <S.Subtitle>Engenheiro de Software</S.Subtitle>
+      </div>
+    </S.HeroContainer>
   )
 }
