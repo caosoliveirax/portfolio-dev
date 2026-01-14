@@ -5,7 +5,6 @@ export const HeroContainer = styled.section`
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
-  background-color: ${({ theme }) => theme.colors.background};
   padding: 80px 15%;
   max-width: 1440px;
   margin: 0 auto;
@@ -14,6 +13,10 @@ export const HeroContainer = styled.section`
     display: flex;
     flex-direction: column;
     width: auto;
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+      align-items: center;
+    }
   }
 
   .wrapper-right {
@@ -25,15 +28,16 @@ export const HeroContainer = styled.section`
     gap: 8px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    flex-direction: column-reverse;
-    height: auto;
-    padding: 42px 20px;
-    gap: 40px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.desktopSmall}) {
+    padding: 80px 7%;
+  }
 
-    .wrapper-right {
-      align-items: center;
-    }
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    padding: 32px 40px;
+    gap: 20px;
   }
 `
 
@@ -43,25 +47,39 @@ export const Title = styled.h1`
   color: ${({ theme }) => theme.colors.text};
   text-align: start;
   line-height: 1.1;
+  max-width: 600px;
 
   span {
     color: ${({ theme }) => theme.colors.subtext};
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    font-size: 3.75rem;
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     text-align: center;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    font-size: 3rem;
   }
 `
 export const Description = styled.p`
   margin-top: 8px;
-  width: 408px;
+  max-width: 408px;
   color: ${({ theme }) => theme.colors.subtext};
   font-size: 1.25rem;
   letter-spacing: 2%;
   line-height: 1.5;
   text-align: start;
   margin-left: 8px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    text-align: center;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    margin-top: 20px;
+    font-size: 1rem;
+    margin-left: 0;
+  }
 `
 
 export const ProfileImage = styled.img`
@@ -85,7 +103,7 @@ export const Subtitle = styled.h2`
   line-height: 1.6;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
 `
 
