@@ -20,8 +20,9 @@ export const HeroContainer = styled.section`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: center;
     text-align: end;
+    gap: 8px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
@@ -33,21 +34,6 @@ export const HeroContainer = styled.section`
     .wrapper-right {
       align-items: center;
     }
-  }
-`
-
-export const ProfileImage = styled.img`
-  width: 250px;
-  height: 250px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid ${({ theme }) => theme.colors.text};
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
-  margin-bottom: 8px;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    width: 150px;
-    height: 150px;
   }
 `
 
@@ -67,6 +53,30 @@ export const Title = styled.h1`
     text-align: center;
   }
 `
+export const Description = styled.p`
+  margin-top: 8px;
+  width: 408px;
+  color: ${({ theme }) => theme.colors.subtext};
+  font-size: 1.25rem;
+  letter-spacing: 2%;
+  line-height: 1.5;
+  text-align: start;
+  margin-left: 8px;
+`
+
+export const ProfileImage = styled.img`
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid ${({ theme }) => theme.colors.text};
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    width: 150px;
+    height: 150px;
+  }
+`
 
 export const Subtitle = styled.h2`
   font-size: 1.1rem;
@@ -79,13 +89,28 @@ export const Subtitle = styled.h2`
   }
 `
 
-export const Description = styled.p`
-  margin-top: 8px;
-  width: 408px;
-  color: ${({ theme }) => theme.colors.subtext};
-  font-size: 1.25rem;
-  letter-spacing: 2%;
-  line-height: 1.5;
-  text-align: start;
-  margin-left: 8px;
+export const SocialLinks = styled.ul`
+  display: flex;
+  gap: 8px;
+  list-style: none;
+`
+
+export const SocialItem = styled.li`
+  display: flex;
+`
+
+export const SocialLink = styled.a`
+  color: ${({ theme }) => theme.colors.text};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  text-decoration: none;
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.subtext};
+    transform: translateY(-2px);
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  }
 `
