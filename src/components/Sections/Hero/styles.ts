@@ -3,11 +3,11 @@ import styled from 'styled-components'
 export const HeroContainer = styled.section`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: flex-start;
-  padding: 80px 15%;
-  max-width: 1440px;
-  margin: 0 auto;
+  padding: 0 20%;
+  min-height: calc(100vh - 90px);
+  margin-top: 80px;
 
   .wrapper-left {
     display: flex;
@@ -35,6 +35,7 @@ export const HeroContainer = styled.section`
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     height: auto;
     padding: 32px 40px;
     gap: 20px;
@@ -47,7 +48,8 @@ export const Title = styled.h1`
   color: ${({ theme }) => theme.colors.text};
   text-align: start;
   line-height: 1.1;
-  max-width: 600px;
+  width: fit-content;
+  max-width: 458px;
 
   span {
     color: ${({ theme }) => theme.colors.subtext};
@@ -87,6 +89,7 @@ export const ProfileImage = styled.img`
   height: 250px;
   border-radius: 50%;
   object-fit: cover;
+  background-color: ${({ theme }) => theme.colors.background};
   border: 1px solid ${({ theme }) => theme.colors.text};
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
 
@@ -110,7 +113,6 @@ export const Subtitle = styled.h2`
 export const SocialLinks = styled.ul`
   display: flex;
   gap: 8px;
-  list-style: none;
 `
 
 export const SocialItem = styled.li`

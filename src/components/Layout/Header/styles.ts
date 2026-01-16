@@ -30,7 +30,6 @@ export const Nav = styled.nav`
 export const NavList = styled.ul`
   display: flex;
   justify-content: space-around;
-  list-style: none;
   align-items: center;
 `
 
