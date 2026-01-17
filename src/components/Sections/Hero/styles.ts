@@ -6,17 +6,13 @@ export const HeroContainer = styled.section`
   justify-content: space-around;
   align-items: flex-start;
   padding: 0 20%;
-  min-height: calc(100vh - 90px);
+  min-height: calc(100vh - 206px);
   margin-top: 80px;
 
   .wrapper-left {
     display: flex;
     flex-direction: column;
     width: auto;
-
-    @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-      align-items: center;
-    }
   }
 
   .wrapper-right {
@@ -28,7 +24,13 @@ export const HeroContainer = styled.section`
     gap: 8px;
   }
 
+  @media (max-width: ${({ theme }) => theme.breakpoints.desktop}) {
+    min-height: 100%;
+    justify-content: center;
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoints.desktopSmall}) {
+    justify-content: center;
     padding: 80px 7%;
   }
 
@@ -36,9 +38,14 @@ export const HeroContainer = styled.section`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: auto;
+    min-height: calc(100vh - 90px);
     padding: 32px 40px;
     gap: 20px;
+    margin-top: 0;
+
+    .wrapper-left {
+      align-items: center;
+    }
   }
 `
 
