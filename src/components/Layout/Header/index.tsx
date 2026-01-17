@@ -1,12 +1,22 @@
 import { Container, Nav, NavLink, NavList } from './styles'
 
 export const Header = () => {
+  const handleScrollToTop = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault()
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+  }
+
   return (
     <Container>
       <Nav>
         <NavList>
           <li>
-            <NavLink href="#home">Início</NavLink>
+            <NavLink onClick={handleScrollToTop} href="#">
+              Início
+            </NavLink>
           </li>
           <li>
             <NavLink href="#about">Sobre</NavLink>

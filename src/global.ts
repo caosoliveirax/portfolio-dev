@@ -8,6 +8,14 @@ export const GlobalStyle = createGlobalStyle`
     list-style-type: none;
   }
 
+  html {
+    scroll-behavior: smooth;
+
+    @media (prefers-reduced-motion: reduce) {
+      scroll-behavior: auto;
+    }
+  }
+
   body {
     font-family: "Inknut Antiqua", serif;
     background: ${({ theme }) => theme.colors.background};

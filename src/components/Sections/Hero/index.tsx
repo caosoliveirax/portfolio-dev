@@ -1,10 +1,10 @@
-import * as S from './styles'
 import { FaLinkedin, FaGithubSquare } from 'react-icons/fa'
+import * as S from './styles'
 import profile from '../../../assets/profile.png'
 
 export const Hero = () => {
   return (
-    <S.HeroContainer>
+    <S.HeroContainer id="home">
       <div className="wrapper-left">
         <S.Title>
           Olá! <br /> Eu sou <span>Carlos Oliveira.</span>

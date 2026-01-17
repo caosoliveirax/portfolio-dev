@@ -3,7 +3,7 @@ import * as S from './styles'
 
 const About = () => {
   return (
-    <S.AboutContainer>
+    <S.AboutContainer id="about">
       <S.ContentGrid>
         <S.BioCard>
           <S.SectionTitle>Sobre Mim</S.SectionTitle>
