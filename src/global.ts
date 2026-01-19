@@ -43,4 +43,9 @@ export const GlobalStyle = createGlobalStyle`
     opacity: 0.50;
     box-shadow: inset 0 0 150px rgba(0, 0, 0, 0.0);
   }
+
+  a {
+    text-decoration: none;
+    cursor: pointer;
+  }
 `

@@ -4,6 +4,7 @@ import { theme } from './styles/theme'
 import { Hero } from '@components/Sections/Hero'
 import Header from '@components/Layout/Header'
 import About from '@components/Sections/About'
+import Projects from '@components/Sections/Projects'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Header />
         <Hero />
         <About />
+        <Projects />
       </ThemeProvider>
     </>
   )

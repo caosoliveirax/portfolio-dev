@@ -132,8 +132,6 @@ export const SocialLink = styled.a`
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease-in-out;
-  cursor: pointer;
-  text-decoration: none;
 
   &:hover {
     color: ${({ theme }) => theme.colors.subtext};

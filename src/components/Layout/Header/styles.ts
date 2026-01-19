@@ -37,8 +37,7 @@ export const NavLink = styled.a`
   display: block;
   color: ${({ theme }) => theme.colors.subtext};
   font-size: 1rem;
-  text-decoration: none;
-  cursor: pointer;
+
   transition: opacity 0.2s;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
