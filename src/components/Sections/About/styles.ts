@@ -55,11 +55,12 @@ export const ContentGrid = styled.div`
 `
 
 export const CardBase = styled.div`
-  background-color: ${({ theme }) => theme.colors.background};
+  background-color: ${({ theme }) => theme.colors.primary};
   text-align: start;
   padding: 28px;
-  border: 2px solid ${({ theme }) => theme.colors.subtext};
-  border-radius: 16px;
+  border: 2px solid ${({ theme }) => theme.colors.text};
+  box-shadow: 6px 6px 0px ${({ theme }) => theme.colors.text};
+  border-radius: 32px 8px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     border-radius: 8px;
@@ -114,14 +115,19 @@ export const TechList = styled.ul`
     justify-content: center;
     flex-direction: column;
     padding: 16px;
-    border: 2px solid ${({ theme }) => theme.colors.subtext};
+    border: 2px solid ${({ theme }) => theme.colors.text};
+    box-shadow: 4px 4px 0px ${({ theme }) => theme.colors.text};
+    background-color: ${({ theme }) => theme.colors.primary};
     border-radius: 8px;
     font-size: 0.85rem;
+    font-weight: 500;
     text-align: center;
     line-height: 1.2;
     overflow: hidden;
+    border-radius: 16px 8px;
 
     svg {
+      color: ${({ theme }) => theme.colors.text};
       font-size: 3rem;
       margin-bottom: 8px;
     }
@@ -132,7 +138,7 @@ export const TechList = styled.ul`
       padding: 8px;
       font-size: 0.75rem;
       border-width: 1px;
-      background-color: ${({ theme }) => theme.colors.background};
+      background-color: ${({ theme }) => theme.colors.primary};
 
       svg {
         font-size: 3rem;

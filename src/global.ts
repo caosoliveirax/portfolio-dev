@@ -18,11 +18,11 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     font-family: "Inknut Antiqua", serif;
-    background: ${({ theme }) => theme.colors.background};
+    background: ${({ theme }) => theme.colors.primary};
     color: ${({ theme }) => theme.colors.text};
     text-align: center;
     min-height: calc(100vh - 20px);
-    background-color: ${({ theme }) => theme.colors.background};
+    background-color: ${({ theme }) => theme.colors.primary};
     background-image:
       linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
       linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);

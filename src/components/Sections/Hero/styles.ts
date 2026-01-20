@@ -96,7 +96,7 @@ export const ProfileImage = styled.img`
   height: 250px;
   border-radius: 50%;
   object-fit: cover;
-  background-color: ${({ theme }) => theme.colors.background};
+  background-color: ${({ theme }) => theme.colors.secondary};
   border: 1px solid ${({ theme }) => theme.colors.text};
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
 

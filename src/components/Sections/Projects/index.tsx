@@ -1,8 +1,12 @@
+import { useRef } from 'react'
 import * as S from './styles'
 import { projects } from './content'
-import { FaExternalLinkAlt } from 'react-icons/fa'
-import { PiCaretLeftThin, PiCaretRightThin } from 'react-icons/pi'
-import { useRef } from 'react'
+import {
+  PiArrowSquareOutLight,
+  PiCaretLeftThin,
+  PiCaretRightThin,
+  PiGithubLogo
+} from 'react-icons/pi'
 
 const Projects = () => {
   const carouselRef = useRef<HTMLDivElement>(null)
@@ -49,13 +53,13 @@ const Projects = () => {
                   <li>
                     <a href={project.liveUrl} target="_blank">
                       Experimente o projeto
-                      <FaExternalLinkAlt />
+                      <PiArrowSquareOutLight />
                     </a>
                   </li>
                   <li>
                     <a href={project.githubUrl} target="_blank">
                       Ver repositório
-                      <FaExternalLinkAlt />
+                      <PiGithubLogo />
                     </a>
                   </li>
                 </ul>

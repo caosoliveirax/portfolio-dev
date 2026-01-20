@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const ProjectsContainer = styled.section`
   min-height: 100vh;
-  padding: 40px 20% 80px 20%;
+  padding: 40px 20% 72px 20%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -12,7 +12,7 @@ export const SectionTitle = styled.h2`
   font-weight: 400;
   font-size: 3rem;
   line-height: 1;
-  margin-bottom: 48px;
+  margin-bottom: 16px;
 `
 
 export const CarouselWrapper = styled.div`
@@ -20,6 +20,35 @@ export const CarouselWrapper = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 10px;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  &::before {
+    left: 0;
+    background: linear-gradient(
+      to right,
+      ${({ theme }) => theme.colors.primary} 0%,
+      transparent 100%
+    );
+  }
+
+  &::after {
+    right: 0;
+    background: linear-gradient(
+      to left,
+      ${({ theme }) => theme.colors.primary} 0%,
+      transparent 100%
+    );
+  }
 `
 
 export const NavButton = styled.button<{ $direction: 'left' | 'right' }>`
@@ -32,12 +61,13 @@ export const NavButton = styled.button<{ $direction: 'left' | 'right' }>`
   border: none;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
+  z-index: 10;
 
   svg {
     padding: 8px;
     font-size: 4rem;
     border-radius: 50%;
-    background-color: ${({ theme }) => theme.colors.primary};
+    background-color: ${({ theme }) => theme.colors.secondary};
     border: 1px solid ${({ theme }) => theme.colors.text};
     box-shadow: 3px 3px 0px ${({ theme }) => theme.colors.text};
     transition: all 0.2s ease;
@@ -63,7 +93,7 @@ export const Carousel = styled.div`
   flex: 1;
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 100px;
   padding: 20px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
@@ -79,8 +109,8 @@ export const Carousel = styled.div`
 `
 
 export const ProjectCard = styled.div`
-  background-color: ${({ theme }) => theme.colors.background};
-  border: 2px solid black;
+  background-color: ${({ theme }) => theme.colors.primary};
+  border: 3px solid ${({ theme }) => theme.colors.text};
   border-radius: 16px;
   width: 100%;
   min-width: 100%;
@@ -89,7 +119,7 @@ export const ProjectCard = styled.div`
   margin: 0 auto;
   display: grid;
   grid-template-columns: 2fr 3fr;
-  grid-template-rows: auto auto;
+  grid-template-rows: 400px auto;
   grid-template-areas:
     'info preview'
     'info feature'
@@ -129,11 +159,10 @@ export const TagsList = styled.ul`
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-top: auto;
 
   li {
     background-color: ${({ theme }) => theme.colors.text};
-    color: ${({ theme }) => theme.colors.background};
+    color: ${({ theme }) => theme.colors.primary};
     font-size: 0.75rem;
     padding: 6px 16px;
     font-weight: 700;
@@ -164,8 +193,6 @@ export const FeaturesList = styled.ul`
 
 export const ProjectActions = styled.div`
   grid-area: actions;
-  display: flex;
-  justify-content: center;
 
   ul {
     display: flex;
@@ -175,17 +202,21 @@ export const ProjectActions = styled.div`
       background-color: ${({ theme }) => theme.colors.text};
       display: flex;
       height: 48px;
-      min-width: 260px;
+      width: 100%;
       border-radius: 8px;
 
       a {
         padding: 8px 18px;
-        color: ${({ theme }) => theme.colors.background};
+        color: ${({ theme }) => theme.colors.primary};
         font-weight: 300;
         display: flex;
         justify-content: space-between;
         align-items: center;
         width: 100%;
+
+        svg {
+          font-size: 1.5rem;
+        }
       }
     }
   }
