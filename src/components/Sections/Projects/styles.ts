@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const ProjectsContainer = styled.section`
   min-height: 100vh;
-  padding: 40px 20%;
+  padding: 40px 20% 80px 20%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -12,7 +12,50 @@ export const SectionTitle = styled.h2`
   font-weight: 400;
   font-size: 3rem;
   line-height: 1;
-  margin-bottom: 32px;
+  margin-bottom: 48px;
+`
+
+export const CarouselWrapper = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+`
+
+export const NavButton = styled.button<{ $direction: 'left' | 'right' }>`
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  ${({ $direction }) => ($direction === 'left' ? 'left: -116px;' : 'right: -116px;')}
+  color: ${({ theme }) => theme.colors.text};
+  background-color: transparent;
+  border: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+
+  svg {
+    padding: 8px;
+    font-size: 4rem;
+    border-radius: 50%;
+    background-color: ${({ theme }) => theme.colors.primary};
+    border: 1px solid ${({ theme }) => theme.colors.text};
+    box-shadow: 3px 3px 0px ${({ theme }) => theme.colors.text};
+    transition: all 0.2s ease;
+  }
+
+  &:hover {
+    transform: translateY(-55%) scale(1.1);
+    svg {
+      box-shadow: 0px 2px 0px ${({ theme }) => theme.colors.text};
+    }
+  }
+
+  &:active {
+    transform: translateY(-50%) scale(0.95);
+    svg {
+      box-shadow: 0px 0px 0px ${({ theme }) => theme.colors.text};
+    }
+  }
 `
 
 export const Carousel = styled.div`
@@ -21,7 +64,18 @@ export const Carousel = styled.div`
   display: flex;
   align-items: center;
   gap: 40px;
+  padding: 20px;
   overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 `
 
 export const ProjectCard = styled.div`
@@ -29,7 +83,8 @@ export const ProjectCard = styled.div`
   border: 2px solid black;
   border-radius: 16px;
   width: 100%;
-  padding: 28px 24px;
+  min-width: 100%;
+  padding: 32px;
   height: auto;
   margin: 0 auto;
   display: grid;
@@ -39,7 +94,9 @@ export const ProjectCard = styled.div`
     'info preview'
     'info feature'
     'info actions';
-  gap: 20px;
+  gap: 24px;
+  scroll-snap-align: center;
+  box-shadow: 8px 8px 0px ${({ theme }) => theme.colors.text};
 `
 
 export const ProjectPreview = styled.img`
@@ -72,7 +129,7 @@ export const TagsList = styled.ul`
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-top: 16px;
+  margin-top: auto;
 
   li {
     background-color: ${({ theme }) => theme.colors.text};
