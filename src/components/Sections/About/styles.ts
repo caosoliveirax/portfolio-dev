@@ -51,6 +51,7 @@ export const ContentGrid = styled.div`
       'tech'
       'soft';
     grid-template-columns: auto;
+    margin-bottom: 16px;
   }
 `
 
@@ -68,6 +69,7 @@ export const CardBase = styled.div`
     border: none;
     text-align: center;
     background-color: transparent;
+    box-shadow: initial;
   }
 `
 

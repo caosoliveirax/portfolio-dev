@@ -37,7 +37,7 @@ export const projects = [
 `,
     liveUrl: '#',
     githubUrl: '#',
-    preview: '',
+    preview: '#',
     techs: [
       { name: 'Tecnologia 1' },
       { name: 'Tecnologia 2' },
