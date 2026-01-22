@@ -8,7 +8,7 @@ export const theme = {
   breakpoints: {
     mobile: '480px',
     tablet: '768px',
-    desktopSmall: '992px',
+    desktopSm: '992px',
     desktop: '1024px'
   }
 } as const

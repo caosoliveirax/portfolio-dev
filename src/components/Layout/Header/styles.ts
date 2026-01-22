@@ -1,12 +1,11 @@
-import { styled } from 'styled-components'
+import { css, styled } from 'styled-components'
+import { flex, mq } from '../../../styles/mixins'
 
 export const Container = styled.header`
   position: relative;
   margin: 16px auto 0;
   padding: 10px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  ${flex('row', 'space-between', 'center')}
   max-width: 468px;
   width: 100%;
   height: 70px;
@@ -15,12 +14,12 @@ export const Container = styled.header`
   border-radius: 20px 20px 100px 100px;
   z-index: 100;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+  ${mq.tablet(css`
     width: 80%;
     height: 52px;
     margin: 20px auto 0;
     padding: 10px 26px;
-  }
+  `)}
 `
 
 export const Nav = styled.nav`
@@ -28,21 +27,14 @@ export const Nav = styled.nav`
 `
 
 export const NavList = styled.ul`
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  ${flex('row', 'space-around', 'center')}
 `
 
 export const NavLink = styled.a`
   display: block;
   color: ${({ theme }) => theme.colors.subtext};
-  font-size: 1rem;
-
+  font-size: clamp(0.75rem, 3vw, 1rem);
   transition: opacity 0.2s;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    font-size: 0.75rem;
-  }
 
   &:hover {
     opacity: 0.6;

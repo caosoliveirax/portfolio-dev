@@ -1,39 +1,36 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+import { flex, mq } from '../../../styles/mixins'
 
 export const AboutContainer = styled.section`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  ${flex('column', 'center', 'center')};
   min-height: 100vh;
   padding: 80px 10%;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+  ${mq.tablet(css`
     padding: 0 20px;
-  }
+  `)}
 `
 
 export const SectionTitle = styled.h2`
-  font-size: 3rem;
+  font-size: clamp(1.75rem, 6vw, 3rem);
   text-align: start;
   line-height: 1;
   margin-bottom: 12px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    font-size: 1.75rem;
+  ${mq.tablet(css`
     text-align: center;
-  }
+  `)}
 `
 
 export const CardTitle = styled.h3`
   text-align: center;
-  font-size: 1.5rem;
+  font-size: clamp(1.25rem, 3vw, 1.5rem);
   line-height: 1;
   margin-bottom: 28px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    font-size: 1.25rem;
+  ${mq.tablet(css`
     margin-bottom: 20px;
-  }
+  `)}
 `
 
 export const ContentGrid = styled.div`
@@ -45,14 +42,14 @@ export const ContentGrid = styled.div`
   grid-template-rows: 1fr auto;
   gap: 20px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.desktop}) {
+  ${mq.desktop(css`
     grid-template-areas:
       'bio'
       'tech'
       'soft';
     grid-template-columns: auto;
     margin-bottom: 16px;
-  }
+  `)}
 `
 
 export const CardBase = styled.div`
@@ -63,14 +60,14 @@ export const CardBase = styled.div`
   box-shadow: 6px 6px 0px ${({ theme }) => theme.colors.text};
   border-radius: 32px 8px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+  ${mq.mobile(css`
     border-radius: 8px;
     padding: 28px 0px;
     border: none;
     text-align: center;
     background-color: transparent;
     box-shadow: initial;
-  }
+  `)}
 `
 
 export const BioCard = styled(CardBase)`
@@ -79,25 +76,24 @@ export const BioCard = styled(CardBase)`
 `
 
 export const Text = styled.p`
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 3vw, 1.25rem);
   font-weight: 200;
   color: ${({ theme }) => theme.colors.subtext};
   line-height: 2.1;
   max-width: 400px;
 
+  ${mq.desktop(css`
+    max-width: 100%;
+  `)}
+
+  ${mq.tablet(css`
+    line-height: 1.9;
+  `)}
+
   em {
     font-style: normal;
     font-weight: bold;
     color: ${({ theme }) => theme.colors.text};
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.desktop}) {
-    max-width: 100%;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    font-size: 1rem;
-    line-height: 1.9;
   }
 `
 
@@ -110,46 +106,36 @@ export const TechList = styled.ul`
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   gap: 12px;
 
+  ${mq.mobile(css`
+    grid-template-columns: repeat(3, 1fr);
+  `)}
+
   li {
+    ${flex('column', 'center', 'center')};
     aspect-ratio: 1 / 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
     padding: 16px;
     border: 2px solid ${({ theme }) => theme.colors.text};
     box-shadow: 4px 4px 0px ${({ theme }) => theme.colors.text};
     background-color: ${({ theme }) => theme.colors.primary};
     border-radius: 8px;
-    font-size: 0.85rem;
+    font-size: clamp(0.75rem, 3vw, 0.85rem);
     font-weight: 500;
     text-align: center;
     line-height: 1.2;
     overflow: hidden;
     border-radius: 16px 8px;
 
+    ${mq.tablet(css`
+      padding: 8px;
+      border-width: 1px;
+      background-color: ${({ theme }) => theme.colors.primary};
+    `)}
+
     svg {
       color: ${({ theme }) => theme.colors.text};
       font-size: 3rem;
       margin-bottom: 8px;
     }
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    li {
-      padding: 8px;
-      font-size: 0.75rem;
-      border-width: 1px;
-      background-color: ${({ theme }) => theme.colors.primary};
-
-      svg {
-        font-size: 3rem;
-      }
-    }
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    grid-template-columns: repeat(3, 1fr);
   }
 `
 
@@ -162,27 +148,17 @@ export const SoftList = styled.ul`
   grid-template-columns: repeat(3, 1fr);
   row-gap: 12px;
 
+  ${mq.tablet(css`
+    grid-template-columns: repeat(2, 1fr);
+  `)}
+
   li {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+    ${flex('column', 'center', 'center')};
     text-align: center;
+    font-size: clamp(0.75rem, 3vw, 1rem);
 
     svg {
-      font-size: 2.5rem;
-    }
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    grid-template-columns: repeat(2, 1fr);
-
-    li {
-      padding: 0;
-      font-size: 0.75rem;
-
-      svg {
-        font-size: 2rem;
-      }
+      font-size: clamp(2rem, 6vw, 2.5rem);
     }
   }
 `

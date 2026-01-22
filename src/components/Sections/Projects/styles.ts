@@ -1,11 +1,10 @@
 import styled, { css } from 'styled-components'
+import { flex, mq } from '../../../styles/mixins'
 
 export const ProjectsContainer = styled.section`
   min-height: 100vh;
   padding: 40px 15% 72px 15%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  ${flex('column', 'center', 'center')};
 
   ${({ theme }) => css`
     @media (max-height: 900px) and (min-width: ${theme.breakpoints.desktop}) {
@@ -13,30 +12,25 @@ export const ProjectsContainer = styled.section`
     }
   `}
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+  ${mq.tablet(css`
     padding: 80px 20px;
-  }
+  `)}
 `
 
 export const SectionTitle = styled.h2`
   font-weight: 500;
-  font-size: 3rem;
+  font-size: clamp(1.75rem, 6vw, 3rem);
   line-height: 1;
   margin-bottom: 32px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+  ${mq.tablet(css`
     margin-bottom: 3rem;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    font-size: 1.75rem;
-  }
+  `)}
 `
 
 export const CarouselWrapper = styled.div`
   position: relative;
-  display: flex;
-  align-items: center;
+  ${flex('row', 'center', 'center')};
   width: 100%;
 
   &::before,
@@ -49,9 +43,9 @@ export const CarouselWrapper = styled.div`
     z-index: 2;
     pointer-events: none;
 
-    @media (max-width: ${({ theme }) => theme.breakpoints.desktopSmall}) {
+    ${mq.desktopSm(css`
       display: none;
-    }
+    `)}
   }
 
   &::before {
@@ -85,9 +79,9 @@ export const NavButton = styled.button<{ $direction: 'left' | 'right' }>`
   cursor: pointer;
   z-index: 10;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.desktopSmall}) {
+  ${mq.desktopSm(css`
     display: none;
-  }
+  `)}
 
   svg {
     padding: 8px;
@@ -117,28 +111,26 @@ export const NavButton = styled.button<{ $direction: 'left' | 'right' }>`
 export const Carousel = styled.div`
   width: 100%;
   flex: 1;
-  display: flex;
-  align-items: flex-start;
+  ${flex('row', 'space-between', 'flex-start')};
   gap: 100px;
   padding: 20px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
   -webkit-overflow-scrolling: touch;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.desktopSmall}) {
+  ${mq.desktopSm(css`
     flex-direction: column;
     gap: 60px;
     padding: 0;
     scroll-snap-type: none;
-  }
+  `)}
 
   &::-webkit-scrollbar {
     display: none;
   }
-
-  -ms-overflow-style: none;
-  scrollbar-width: none;
 `
 
 export const ProjectCard = styled.div`
@@ -160,21 +152,20 @@ export const ProjectCard = styled.div`
   scroll-snap-align: center;
   box-shadow: 8px 8px 0px ${({ theme }) => theme.colors.text};
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.desktop}) {
-    display: flex;
-    flex-direction: column;
-  }
+  ${mq.desktop(css`
+    ${flex('column', 'center', 'stretch')};
+  `)}
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    min-width: 100%;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.desktopSmall}) {
+  ${mq.desktopSm(css`
     gap: 16px;
     padding: 20px;
     border: 2px solid ${({ theme }) => theme.colors.text};
     box-shadow: 0px 4px 0px ${({ theme }) => theme.colors.text};
-  }
+  `)}
+
+  ${mq.tablet(css`
+    min-width: 100%;
+  `)}
 `
 
 export const ProjectPreview = styled.img`
@@ -191,35 +182,30 @@ export const ProjectInfo = styled.div`
 `
 
 export const Title = styled.h3`
-  font-size: 2rem;
+  font-size: clamp(1.25rem, 4vw, 2rem);
+
   font-weight: 400;
   line-height: 1;
   margin-bottom: 24px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    font-size: 1.5rem;
+  ${mq.tablet(css`
     font-weight: 600;
     margin-bottom: 16px;
-  }
+  `)}
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    font-size: 1.25rem;
+  ${mq.mobile(css`
     margin-bottom: 14px;
-  }
+  `)}
 `
 
 export const Description = styled.p`
-  font-size: 1rem;
+  font-size: clamp(0.95rem, 4vw, 1.25rem);
+  line-height: 2;
   margin-bottom: 8px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    line-height: 1.8;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    font-size: 0.95rem;
+  ${mq.mobile(css`
     line-height: 1.6;
-  }
+  `)}
 `
 
 export const TagsList = styled.ul`
@@ -230,66 +216,38 @@ export const TagsList = styled.ul`
   li {
     background-color: ${({ theme }) => theme.colors.text};
     color: ${({ theme }) => theme.colors.primary};
-    font-size: 0.75rem;
+    font-size: clamp(0.6rem, 2vw, 0.75rem);
     padding: 6px 16px;
     font-weight: 700;
     border-radius: 16px 8px;
-
     width: fit-content;
     white-space: nowrap;
-  }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    li {
-      font-size: 0.65rem;
-    }
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    li {
+    ${mq.tablet(css`
       padding: 4px 12px;
-      font-size: 0.6rem;
-    }
+    `)}
   }
 `
 
 export const FeaturesList = styled.ul`
   grid-area: feature;
-  display: flex;
-  justify-content: center;
+  ${flex('row', 'center', 'center')};
   gap: 32px;
 
+  ${mq.mobile(css`
+    gap: 16px;
+  `)}
+
   li {
-    font-size: 0.85rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    font-size: clamp(0.6rem, 2vw, 0.85rem);
+    ${flex('column', 'space-between', 'center')};
+
+    ${mq.tablet(css`
+      line-height: 2;
+    `)}
 
     svg {
-      font-size: 3rem;
-    }
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    li {
-      font-size: 0.75rem;
-      line-height: 2;
-
-      svg {
-        font-size: 2rem;
-      }
-    }
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    gap: 16px;
-
-    li {
-      font-size: 0.6rem;
-
-      svg {
-        font-size: 1.5rem;
-      }
+      font-size: clamp(1.5rem, 5vw, 3rem);
     }
   }
 `
@@ -301,6 +259,11 @@ export const ProjectActions = styled.div`
     display: flex;
     gap: 16px;
 
+    ${mq.desktopSm(css`
+      flex-direction: column;
+      gap: 6px;
+    `)}
+
     li {
       background-color: ${({ theme }) => theme.colors.text};
       display: flex;
@@ -308,35 +271,24 @@ export const ProjectActions = styled.div`
       width: 100%;
       border-radius: 8px;
 
+      ${mq.desktopSm(css`
+        height: 36px;
+      `)}
+
       a {
         padding: 8px 18px;
         color: ${({ theme }) => theme.colors.primary};
+        font-size: clamp(0.8rem, 2vw, 1rem);
         font-weight: 300;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        ${flex('row', 'space-between', 'center')};
         width: 100%;
 
-        svg {
-          font-size: 1.5rem;
-        }
-      }
-    }
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.desktopSmall}) {
-    ul {
-      flex-direction: column;
-      gap: 6px;
-      li {
-        height: 36px;
-        a {
-          font-size: 0.7rem;
+        ${mq.desktopSm(css`
           padding: 4px 16px;
+        `)}
 
-          svg {
-            font-size: 1rem;
-          }
+        svg {
+          font-size: clamp(1rem, 4vw, 1.5rem);
         }
       }
     }
