@@ -1,10 +1,9 @@
 import styled, { css } from 'styled-components'
 import { flex, mq, NeoStyle } from '../../../styles/mixins'
+import * as Base from '../../../styles/base'
 
-export const ProjectsContainer = styled.section`
-  min-height: 100vh;
-  padding: 40px 15% 40px 15%;
-  ${flex('column', 'center', 'center')};
+export const ProjectsContainer = styled(Base.Section)`
+  padding: 40px 15%;
 
   ${({ theme }) => css`
     @media (max-height: 900px) and (min-width: ${theme.breakpoints.desktop}) {
@@ -13,16 +12,11 @@ export const ProjectsContainer = styled.section`
   `}
 
   ${mq.tablet(css`
-    padding: 80px 20px;
+    padding: 60px 40px;
   `)}
 `
 
-export const SectionTitle = styled.h2`
-  font-weight: 500;
-  font-size: clamp(1.75rem, 6vw, 3rem);
-  line-height: 1;
-  margin-bottom: 32px;
-
+export const SectionTitle = styled(Base.SectionTitle)`
   ${mq.tablet(css`
     margin-bottom: 3rem;
   `)}
@@ -171,7 +165,6 @@ export const ProjectInfo = styled.div`
 
 export const Title = styled.h3`
   font-size: clamp(1.25rem, 4vw, 2rem);
-
   font-weight: 400;
   line-height: 1;
   margin-bottom: 24px;
@@ -186,8 +179,7 @@ export const Title = styled.h3`
   `)}
 `
 
-export const Description = styled.p`
-  font-size: clamp(0.95rem, 4vw, 1.25rem);
+export const Description = styled(Base.Description)`
   line-height: 2;
   margin-bottom: 8px;
 
@@ -255,7 +247,7 @@ export const ProjectActions = styled.div`
       display: flex;
       height: 48px;
       width: 100%;
-      transition: all 0.3s cubic-bezier(0.32, 0.68, 0.65, 0.5);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
       &:hover {
         box-shadow: 1px 4px 0 var(--text);
@@ -265,23 +257,21 @@ export const ProjectActions = styled.div`
       ${mq.desktopSm(css`
         height: 36px;
       `)}
-
-      a {
-        padding: 8px 18px;
-        color: var(--text);
-        font-size: clamp(0.8rem, 2vw, 1rem);
-        font-weight: 300;
-        ${flex('row', 'space-between', 'center')};
-        width: 100%;
-
-        ${mq.desktopSm(css`
-          padding: 4px 16px;
-        `)}
-
-        svg {
-          font-size: clamp(1rem, 4vw, 1.5rem);
-        }
-      }
     }
+  }
+`
+
+export const ActionLink = styled(Base.Link)`
+  padding: 8px 18px;
+  font-size: clamp(0.8rem, 2vw, 1rem);
+  ${flex('row', 'space-between', 'center')};
+  width: 100%;
+
+  ${mq.desktopSm(css`
+    padding: 4px 16px;
+  `)}
+
+  svg {
+    font-size: clamp(1rem, 4vw, 1.5rem);
   }
 `

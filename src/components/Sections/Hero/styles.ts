@@ -1,7 +1,8 @@
 import styled, { css } from 'styled-components'
 import { flex, mq, NeoStyle } from '../../../styles/mixins'
+import * as Base from '../../../styles/base'
 
-export const HeroContainer = styled.section`
+export const HeroContainer = styled(Base.Section)`
   ${flex('row', 'space-around', 'flex-start')};
   padding: 0 20%;
   min-height: calc(100vh - 206px);
@@ -20,13 +21,12 @@ export const HeroContainer = styled.section`
   ${mq.tablet(css`
     ${flex('column', 'center', 'center')};
     min-height: calc(100vh - 90px);
-    padding: 32px 40px;
     gap: 20px;
     margin-top: 0;
   `)}
 
   .wrapper-left {
-    ${flex('column', 'center', 'center')};
+    ${flex('column', 'center', 'start')};
     width: auto;
 
     ${mq.tablet(css`
@@ -58,12 +58,9 @@ export const Title = styled.h1`
     color: var(--subtext);
   }
 `
-export const Description = styled.p`
+export const Description = styled(Base.Description)`
   margin-top: 8px;
   max-width: 408px;
-  color: var(--subtext);
-  font-size: clamp(1rem, 4vw, 1.25rem);
-  letter-spacing: 2%;
   line-height: 1.5;
   text-align: start;
   margin-left: 8px;
@@ -106,15 +103,11 @@ export const SocialItem = styled.li`
   display: flex;
 `
 
-export const SocialLink = styled.a`
-  ${NeoStyle('2px 2px', '0', '8px', 'var(--text)')};
-  color: var(--secondary);
+export const SocialLink = styled(Base.LinkNeo)`
   ${flex('row', 'center', 'center')};
-  transition: all 0.3s ease-in-out;
+  padding: 0;
 
   &:hover {
-    transform: translateY(-2px);
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-    box-shadow: 0px 1px 0 var(--text);
   }
 `

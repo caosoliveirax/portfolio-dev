@@ -51,16 +51,16 @@ const Projects = () => {
               <S.ProjectActions>
                 <ul>
                   <li>
-                    <a href={project.liveUrl} target="_blank">
+                    <S.ActionLink href={project.liveUrl} target="_blank">
                       Experimente o projeto
                       <PiArrowSquareOutLight />
-                    </a>
+                    </S.ActionLink>
                   </li>
                   <li>
-                    <a href={project.githubUrl} target="_blank">
+                    <S.ActionLink href={project.githubUrl} target="_blank">
                       Ver repositório
                       <PiGithubLogo />
-                    </a>
+                    </S.ActionLink>
                   </li>
                 </ul>
               </S.ProjectActions>

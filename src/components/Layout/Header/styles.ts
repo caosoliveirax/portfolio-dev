@@ -1,5 +1,6 @@
 import { css, styled } from 'styled-components'
 import { flex, mq, NeoStyle } from '../../../styles/mixins'
+import * as Base from '../../../styles/base'
 
 export const Container = styled.header`
   ${NeoStyle('2px 2px', '1px', '20px 20px 100px 100px', 'var(--secondary)', 'var(--text)')};
@@ -28,11 +29,9 @@ export const NavList = styled.ul`
   ${flex('row', 'space-around', 'center')}
 `
 
-export const NavLink = styled.a`
-  display: block;
+export const NavLink = styled(Base.Link)`
   color: var(--subtext);
   font-size: clamp(0.75rem, 3vw, 1rem);
-  transition: opacity 0.2s;
 
   &:hover {
     opacity: 0.6;

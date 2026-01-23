@@ -1,31 +1,16 @@
 import styled, { css } from 'styled-components'
 import { flex, mq, NeoStyle } from '../../../styles/mixins'
+import * as Base from '../../../styles/base'
 
-export const AboutContainer = styled.section`
-  ${flex('column', 'center', 'center')};
-  min-height: 100vh;
+export const AboutContainer = styled(Base.Section)`
   padding: 80px 10%;
-
-  ${mq.tablet(css`
-    padding: 0 20px;
-  `)}
 `
 
-export const SectionTitle = styled.h2`
-  font-size: clamp(1.75rem, 6vw, 3rem);
-  text-align: start;
-  line-height: 1;
+export const SectionTitle = styled(Base.SectionTitle)`
   margin-bottom: 12px;
-
-  ${mq.tablet(css`
-    text-align: center;
-  `)}
 `
 
-export const CardTitle = styled.h3`
-  text-align: center;
-  font-size: clamp(1.25rem, 3vw, 1.5rem);
-  line-height: 1;
+export const CardTitle = styled(Base.CardTitle)`
   margin-bottom: 28px;
 
   ${mq.tablet(css`
@@ -52,28 +37,12 @@ export const ContentGrid = styled.div`
   `)}
 `
 
-export const CardBase = styled.div`
-  ${NeoStyle('6px 6px', '2px', '16px')};
-  text-align: start;
-  padding: 28px;
-
-  ${mq.mobile(css`
-    border-radius: 8px;
-    padding: 28px 0px;
-    border: none;
-    text-align: center;
-    background-color: transparent;
-    box-shadow: initial;
-  `)}
-`
-
-export const BioCard = styled(CardBase)`
+export const BioCard = styled(Base.CardAbout)`
   grid-row: span 2;
   grid-area: bio;
 `
 
-export const Text = styled.p`
-  font-size: clamp(1rem, 3vw, 1.25rem);
+export const Text = styled(Base.Description)`
   font-weight: 200;
   color: var(--subtext);
   line-height: 2.1;
@@ -94,7 +63,7 @@ export const Text = styled.p`
   }
 `
 
-export const TechCard = styled(CardBase)`
+export const TechCard = styled(Base.CardAbout)`
   grid-area: tech;
 `
 
@@ -131,7 +100,7 @@ export const TechList = styled.ul`
   }
 `
 
-export const SoftCard = styled(CardBase)`
+export const SoftCard = styled(Base.CardAbout)`
   grid-area: soft;
 `
 
