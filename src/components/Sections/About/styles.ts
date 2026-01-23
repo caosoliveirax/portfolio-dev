@@ -38,7 +38,6 @@ export const ContentGrid = styled.div`
 `
 
 export const BioCard = styled(Base.CardAbout)`
-  grid-row: span 2;
   grid-area: bio;
 `
 

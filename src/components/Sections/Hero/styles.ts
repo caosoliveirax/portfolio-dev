@@ -4,25 +4,21 @@ import * as Base from '../../../styles/base'
 
 export const HeroContainer = styled(Base.Section)`
   ${flex('row', 'space-around', 'flex-start')};
-  padding: 0 20%;
-  min-height: calc(100vh - 206px);
-  margin-top: 80px;
+  padding: 80px 20% 0;
+  min-height: 85vh;
 
   ${mq.desktop(css`
-    min-height: 100%;
+    min-height: auto;
     justify-content: center;
   `)}
 
   ${mq.desktopSm(css`
-    justify-content: center;
     padding: 80px 7%;
   `)}
 
   ${mq.tablet(css`
     ${flex('column', 'center', 'center')};
-    min-height: calc(100vh - 90px);
     gap: 20px;
-    margin-top: 0;
   `)}
 
   .wrapper-left {

@@ -1,11 +1,11 @@
-import { css, styled } from 'styled-components'
+import styled, { css } from 'styled-components'
 import { flex, mq, NeoStyle } from './mixins'
 
 export const Section = styled.section`
   ${flex('column', 'center', 'center')};
   min-height: 100vh;
   width: 100%;
-  padding: 40px 10%;
+  padding: 80px 20%;
 
   ${mq.tablet(css`
     min-height: auto;

@@ -21,9 +21,9 @@ const About = () => {
         <S.TechCard>
           <S.CardTitle>Tecnologias e Ferramentas</S.CardTitle>
           <S.TechList>
-            {skills.map((skills) => (
-              <li key={skills.name}>
-                {skills.icon} <span>{skills.name}</span>
+            {skills.map((skill) => (
+              <li key={skill.name}>
+                {skill.icon} <span>{skill.name}</span>
               </li>
             ))}
           </S.TechList>

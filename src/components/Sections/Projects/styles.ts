@@ -16,11 +16,7 @@ export const ProjectsContainer = styled(Base.Section)`
   `)}
 `
 
-export const SectionTitle = styled(Base.SectionTitle)`
-  ${mq.tablet(css`
-    margin-bottom: 3rem;
-  `)}
-`
+export const SectionTitle = styled(Base.SectionTitle)``
 
 export const CarouselWrapper = styled.div`
   position: relative;
@@ -63,7 +59,7 @@ export const NavButton = styled.button<{ $direction: 'left' | 'right' }>`
   border: none;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
-  z-index: 10;
+  z-index: 20;
 
   ${mq.desktopSm(css`
     display: none;
@@ -143,10 +139,7 @@ export const ProjectCard = styled.div`
     gap: 16px;
     padding: 20px;
     ${NeoStyle('0px 4px', '2px')};
-  `)}
-
-  ${mq.tablet(css`
-    min-width: 100%;
+    min-width: auto;
   `)}
 `
 
@@ -250,8 +243,7 @@ export const ProjectActions = styled.div`
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
       &:hover {
-        box-shadow: 1px 4px 0 var(--text);
-        transform: translateY(-5%) scale(1.02);
+        transform: translateY(-5%) scale(1.01);
       }
 
       ${mq.desktopSm(css`

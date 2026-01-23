@@ -12,6 +12,9 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+  }
+
+  ul, ol {
     list-style-type: none;
   }
 
@@ -25,11 +28,10 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     font-family: "Inknut Antiqua", serif;
-    background: ${({ theme }) => theme.colors.primary};
-    color: ${({ theme }) => theme.colors.text};
+    color: var(--text);
     text-align: center;
-    min-height: calc(100vh - 20px);
-    background-color: ${({ theme }) => theme.colors.primary};
+    min-height: 100dvh;
+    background-color: var(--primary);
     background-image:
       linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
       linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
@@ -44,7 +46,7 @@ export const GlobalStyle = createGlobalStyle`
     width: 100%;
     height: 100%;
     pointer-events: none;
-    z-index: 999;
+    z-index: 10;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.6'/%3E%3C/svg%3E");
     mix-blend-mode: overlay;
     opacity: 0.50;

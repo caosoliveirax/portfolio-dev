@@ -1,4 +1,4 @@
-import { css, styled } from 'styled-components'
+import styled, { css } from 'styled-components'
 import { flex, mq, NeoStyle } from '../../../styles/mixins'
 import * as Base from '../../../styles/base'
 
@@ -16,7 +16,6 @@ export const Container = styled.header`
   ${mq.tablet(css`
     width: 80%;
     height: 52px;
-    margin: 20px auto 0;
     padding: 10px 26px;
   `)}
 `
