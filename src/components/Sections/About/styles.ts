@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { flex, mq } from '../../../styles/mixins'
+import { flex, mq, NeoStyle } from '../../../styles/mixins'
 
 export const AboutContainer = styled.section`
   ${flex('column', 'center', 'center')};
@@ -53,12 +53,9 @@ export const ContentGrid = styled.div`
 `
 
 export const CardBase = styled.div`
-  background-color: ${({ theme }) => theme.colors.primary};
+  ${NeoStyle('6px 6px', '2px', '16px')};
   text-align: start;
   padding: 28px;
-  border: 2px solid ${({ theme }) => theme.colors.text};
-  box-shadow: 6px 6px 0px ${({ theme }) => theme.colors.text};
-  border-radius: 32px 8px;
 
   ${mq.mobile(css`
     border-radius: 8px;
@@ -78,7 +75,7 @@ export const BioCard = styled(CardBase)`
 export const Text = styled.p`
   font-size: clamp(1rem, 3vw, 1.25rem);
   font-weight: 200;
-  color: ${({ theme }) => theme.colors.subtext};
+  color: var(--subtext);
   line-height: 2.1;
   max-width: 400px;
 
@@ -93,7 +90,7 @@ export const Text = styled.p`
   em {
     font-style: normal;
     font-weight: bold;
-    color: ${({ theme }) => theme.colors.text};
+    color: var(--text);
   }
 `
 
@@ -111,28 +108,23 @@ export const TechList = styled.ul`
   `)}
 
   li {
+    ${NeoStyle('4px 4px', '2px', '16px 8px')};
     ${flex('column', 'center', 'center')};
     aspect-ratio: 1 / 1;
     padding: 16px;
-    border: 2px solid ${({ theme }) => theme.colors.text};
-    box-shadow: 4px 4px 0px ${({ theme }) => theme.colors.text};
-    background-color: ${({ theme }) => theme.colors.primary};
-    border-radius: 8px;
     font-size: clamp(0.75rem, 3vw, 0.85rem);
     font-weight: 500;
     text-align: center;
     line-height: 1.2;
     overflow: hidden;
-    border-radius: 16px 8px;
 
     ${mq.tablet(css`
       padding: 8px;
       border-width: 1px;
-      background-color: ${({ theme }) => theme.colors.primary};
     `)}
 
     svg {
-      color: ${({ theme }) => theme.colors.text};
+      color: var(--text);
       font-size: 3rem;
       margin-bottom: 8px;
     }

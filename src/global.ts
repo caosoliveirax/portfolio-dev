@@ -1,6 +1,13 @@
 import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
+  :root {
+    --primary: ${({ theme }) => theme.colors.primary};
+    --secondary: ${({ theme }) => theme.colors.secondary};
+    --text: ${({ theme }) => theme.colors.text};
+    --subtext: ${({ theme }) => theme.colors.subtext};
+  }
+
   * {
     margin: 0;
     padding: 0;

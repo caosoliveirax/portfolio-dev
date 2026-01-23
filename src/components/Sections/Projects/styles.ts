@@ -1,9 +1,9 @@
 import styled, { css } from 'styled-components'
-import { flex, mq } from '../../../styles/mixins'
+import { flex, mq, NeoStyle } from '../../../styles/mixins'
 
 export const ProjectsContainer = styled.section`
   min-height: 100vh;
-  padding: 40px 15% 72px 15%;
+  padding: 40px 15% 40px 15%;
   ${flex('column', 'center', 'center')};
 
   ${({ theme }) => css`
@@ -50,20 +50,12 @@ export const CarouselWrapper = styled.div`
 
   &::before {
     left: 0;
-    background: linear-gradient(
-      to right,
-      ${({ theme }) => theme.colors.primary} 0%,
-      transparent 100%
-    );
+    background: linear-gradient(to right, var(--primary) 0%, transparent 100%);
   }
 
   &::after {
     right: 0;
-    background: linear-gradient(
-      to left,
-      ${({ theme }) => theme.colors.primary} 0%,
-      transparent 100%
-    );
+    background: linear-gradient(to left, var(--primary) 0%, transparent 100%);
   }
 `
 
@@ -72,7 +64,7 @@ export const NavButton = styled.button<{ $direction: 'left' | 'right' }>`
   top: 50%;
   transform: translateY(-50%);
   ${({ $direction }) => ($direction === 'left' ? 'left: -76px;' : 'right: -76px;')}
-  color: ${({ theme }) => theme.colors.text};
+  color: var(--text);
   background-color: transparent;
   border: none;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -87,23 +79,23 @@ export const NavButton = styled.button<{ $direction: 'left' | 'right' }>`
     padding: 8px;
     font-size: 4rem;
     border-radius: 50%;
-    background-color: ${({ theme }) => theme.colors.secondary};
-    border: 1px solid ${({ theme }) => theme.colors.text};
-    box-shadow: 3px 3px 0px ${({ theme }) => theme.colors.text};
+    background-color: var(--secondary);
+    border: 1px solid var(--text);
+    box-shadow: 3px 3px 0px var(--text);
     transition: all 0.2s ease;
   }
 
   &:hover {
     transform: translateY(-55%) scale(1.1);
     svg {
-      box-shadow: 0px 2px 0px ${({ theme }) => theme.colors.text};
+      box-shadow: 0px 2px 0px var(--text);
     }
   }
 
   &:active {
     transform: translateY(-50%) scale(0.95);
     svg {
-      box-shadow: 0px 0px 0px ${({ theme }) => theme.colors.text};
+      box-shadow: 0px 0px 0px var(--text);
     }
   }
 `
@@ -134,9 +126,7 @@ export const Carousel = styled.div`
 `
 
 export const ProjectCard = styled.div`
-  background-color: ${({ theme }) => theme.colors.primary};
-  border: 3px solid ${({ theme }) => theme.colors.text};
-  border-radius: 16px;
+  ${NeoStyle()};
   min-width: 100%;
   padding: 32px;
   height: auto;
@@ -150,7 +140,6 @@ export const ProjectCard = styled.div`
     'info actions';
   gap: 24px;
   scroll-snap-align: center;
-  box-shadow: 8px 8px 0px ${({ theme }) => theme.colors.text};
 
   ${mq.desktop(css`
     ${flex('column', 'center', 'stretch')};
@@ -159,8 +148,7 @@ export const ProjectCard = styled.div`
   ${mq.desktopSm(css`
     gap: 16px;
     padding: 20px;
-    border: 2px solid ${({ theme }) => theme.colors.text};
-    box-shadow: 0px 4px 0px ${({ theme }) => theme.colors.text};
+    ${NeoStyle('0px 4px', '2px')};
   `)}
 
   ${mq.tablet(css`
@@ -214,12 +202,10 @@ export const TagsList = styled.ul`
   gap: 8px;
 
   li {
-    background-color: ${({ theme }) => theme.colors.text};
-    color: ${({ theme }) => theme.colors.primary};
+    ${NeoStyle('2px 2px', '2px', '16px 8px', 'var(--secondary)', 'var(--text)')};
     font-size: clamp(0.6rem, 2vw, 0.75rem);
     padding: 6px 16px;
     font-weight: 700;
-    border-radius: 16px 8px;
     width: fit-content;
     white-space: nowrap;
 
@@ -265,11 +251,16 @@ export const ProjectActions = styled.div`
     `)}
 
     li {
-      background-color: ${({ theme }) => theme.colors.text};
+      ${NeoStyle('4px 4px', '2px', '8px', 'var(--secondary)', 'var(--text)')};
       display: flex;
       height: 48px;
       width: 100%;
-      border-radius: 8px;
+      transition: all 0.3s cubic-bezier(0.32, 0.68, 0.65, 0.5);
+
+      &:hover {
+        box-shadow: 1px 4px 0 var(--text);
+        transform: translateY(-5%) scale(1.02);
+      }
 
       ${mq.desktopSm(css`
         height: 36px;
@@ -277,7 +268,7 @@ export const ProjectActions = styled.div`
 
       a {
         padding: 8px 18px;
-        color: ${({ theme }) => theme.colors.primary};
+        color: var(--text);
         font-size: clamp(0.8rem, 2vw, 1rem);
         font-weight: 300;
         ${flex('row', 'space-between', 'center')};

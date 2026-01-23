@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { flex, mq } from '../../../styles/mixins'
+import { flex, mq, NeoStyle } from '../../../styles/mixins'
 
 export const HeroContainer = styled.section`
   ${flex('row', 'space-around', 'flex-start')};
@@ -44,7 +44,7 @@ export const HeroContainer = styled.section`
 export const Title = styled.h1`
   font-size: clamp(3rem, 12vw, 6rem);
   font-weight: 400;
-  color: ${({ theme }) => theme.colors.text};
+  color: var(--text);
   text-align: start;
   line-height: 1.1;
   width: fit-content;
@@ -55,13 +55,13 @@ export const Title = styled.h1`
   `)}
 
   span {
-    color: ${({ theme }) => theme.colors.subtext};
+    color: var(--subtext);
   }
 `
 export const Description = styled.p`
   margin-top: 8px;
   max-width: 408px;
-  color: ${({ theme }) => theme.colors.subtext};
+  color: var(--subtext);
   font-size: clamp(1rem, 4vw, 1.25rem);
   letter-spacing: 2%;
   line-height: 1.5;
@@ -79,13 +79,10 @@ export const Description = styled.p`
 `
 
 export const ProfileImage = styled.img`
+  ${NeoStyle('2px 2px', '2px', '50%', 'var(--secondary)')};
   width: 250px;
   height: 250px;
-  border-radius: 50%;
   object-fit: cover;
-  background-color: ${({ theme }) => theme.colors.secondary};
-  border: 1px solid ${({ theme }) => theme.colors.text};
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
 
   ${mq.mobile(css`
     width: 150px;
@@ -96,7 +93,7 @@ export const ProfileImage = styled.img`
 export const Subtitle = styled.h2`
   font-size: clamp(1rem, 4vw, 1.1rem);
   font-weight: 400;
-  color: ${({ theme }) => theme.colors.subtext};
+  color: var(--subtext);
   line-height: 1.6;
 `
 
@@ -110,13 +107,14 @@ export const SocialItem = styled.li`
 `
 
 export const SocialLink = styled.a`
-  color: ${({ theme }) => theme.colors.text};
+  ${NeoStyle('2px 2px', '0', '8px', 'var(--text)')};
+  color: var(--secondary);
   ${flex('row', 'center', 'center')};
   transition: all 0.3s ease-in-out;
 
   &:hover {
-    color: ${({ theme }) => theme.colors.subtext};
     transform: translateY(-2px);
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    box-shadow: 0px 1px 0 var(--text);
   }
 `

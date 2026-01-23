@@ -1,7 +1,8 @@
 import { css, styled } from 'styled-components'
-import { flex, mq } from '../../../styles/mixins'
+import { flex, mq, NeoStyle } from '../../../styles/mixins'
 
 export const Container = styled.header`
+  ${NeoStyle('2px 2px', '1px', '20px 20px 100px 100px', 'var(--secondary)', 'var(--text)')};
   position: relative;
   margin: 16px auto 0;
   padding: 10px 40px;
@@ -9,9 +10,6 @@ export const Container = styled.header`
   max-width: 468px;
   width: 100%;
   height: 70px;
-  background-color: ${({ theme }) => theme.colors.secondary};
-  border: 1px solid #000000;
-  border-radius: 20px 20px 100px 100px;
   z-index: 100;
 
   ${mq.tablet(css`
@@ -32,7 +30,7 @@ export const NavList = styled.ul`
 
 export const NavLink = styled.a`
   display: block;
-  color: ${({ theme }) => theme.colors.subtext};
+  color: var(--subtext);
   font-size: clamp(0.75rem, 3vw, 1rem);
   transition: opacity 0.2s;
 

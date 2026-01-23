@@ -30,9 +30,15 @@ export const flex = (direction = 'row', justify = 'center', align = 'center') =>
   align-items: ${align};
 `
 
-export const NeoStyle = (shadow = '8px 8px', border = '3px', radius = '16px') => css`
-  background-color: ${({ theme }) => theme.colors.primary};
-  border: ${border} solid ${({ theme }) => theme.colors.text};
-  box-shadow: ${shadow} 0px ${({ theme }) => theme.colors.text};
+export const NeoStyle = (
+  shadow = '8px 8px',
+  border = '3px',
+  radius = '16px',
+  bg = 'var(--primary)',
+  color = 'var(--text)'
+) => css`
+  background-color: ${bg};
+  border: ${border} solid ${color};
+  box-shadow: ${shadow} 0px ${color};
   border-radius: ${radius};
 `
