@@ -33,7 +33,7 @@ export const CarouselWrapper = styled.div`
     z-index: 2;
     pointer-events: none;
 
-    ${mq.desktopSm(css`
+    ${mq.desktop(css`
       display: none;
     `)}
   }
@@ -61,7 +61,7 @@ export const NavButton = styled.button<{ $direction: 'left' | 'right' }>`
   cursor: pointer;
   z-index: 20;
 
-  ${mq.desktopSm(css`
+  ${mq.desktop(css`
     display: none;
   `)}
 
@@ -103,10 +103,9 @@ export const Carousel = styled.div`
   -ms-overflow-style: none;
   -webkit-overflow-scrolling: touch;
 
-  ${mq.desktopSm(css`
+  ${mq.desktop(css`
     flex-direction: column;
     gap: 60px;
-    padding: 0;
     scroll-snap-type: none;
   `)}
 
@@ -157,8 +156,8 @@ export const ProjectInfo = styled.div`
 `
 
 export const Title = styled.h3`
-  font-size: clamp(1.25rem, 4vw, 2rem);
-  font-weight: 400;
+  font-size: clamp(1.25rem, 4vw, 2.25rem);
+  font-weight: 500;
   line-height: 1;
   margin-bottom: 24px;
 
@@ -244,6 +243,7 @@ export const ProjectActions = styled.div`
 
       &:hover {
         transform: translateY(-5%) scale(1.01);
+        box-shadow: 2px 2px 0 var(--text);
       }
 
       ${mq.desktopSm(css`

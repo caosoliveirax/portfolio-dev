@@ -14,21 +14,21 @@ export const Section = styled.section`
 
 export const SectionTitle = styled.h2`
   color: var(--text);
-  font-weight: 500;
+  font-weight: 600;
   font-size: clamp(1.75rem, 6vw, 3rem);
   line-height: 1;
   margin-bottom: 32px;
 `
 
 export const CardTitle = styled.h3`
-  font-size: clamp(1.25rem, 3vw, 1.5rem);
-  font-weight: 400;
+  font-size: clamp(1.25rem, 3vw, 2rem);
+  font-weight: 600;
   line-height: 1;
   text-align: center;
 `
 
 export const Description = styled.p`
-  font-size: clamp(0.95rem, 4vw, 1.25rem);
+  font-size: clamp(0.95rem, 4vw, 1.45rem);
   color: var(--subtext);
 `
 
@@ -47,6 +47,26 @@ export const CardAbout = styled.div`
   `)}
 `
 
+export const Card = styled.div`
+  ${NeoStyle('6px 6px', '2px', '16px')};
+  padding: 28px;
+  background-color: var(--primary);
+
+  ${mq.mobile(css`
+    padding: 20px;
+  `)}
+`
+export const ItemNeo = styled.li`
+  ${NeoStyle('4px 4px', '2px', '8px', 'var(--secondary)')};
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    box-shadow: 1px 2px 0 var(--text);
+    transform: translateY(-2px) scale(1.03);
+  }
+`
+
 export const Link = styled.a`
   ${flex('row', 'space-around', 'center')}
   display: block;
@@ -54,21 +74,4 @@ export const Link = styled.a`
   text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-
-  &:hover {
-    transform: translateY(-2px);
-  }
-
-  &:active {
-    transform: translateY(0);
-  }
-`
-
-export const LinkNeo = styled(Link)`
-  ${NeoStyle('4px 4px', '2px', '8px', 'var(--secondary)')};
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-
-  &:hover {
-    box-shadow: 2px 2px 0 var(--text);
-  }
 `

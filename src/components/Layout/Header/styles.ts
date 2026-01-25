@@ -30,7 +30,7 @@ export const NavList = styled.ul`
 
 export const NavLink = styled(Base.Link)`
   color: var(--subtext);
-  font-size: clamp(0.75rem, 3vw, 1rem);
+  font-size: clamp(0.75rem, 3vw, 1.1rem);
 
   &:hover {
     opacity: 0.6;

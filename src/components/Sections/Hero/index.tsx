@@ -7,7 +7,7 @@ export const Hero = () => {
     <S.HeroContainer id="home">
       <div className="wrapper-left">
         <S.Title>
-          Olá! <br /> Eu sou <span>Carlos Oliveira.</span>
+          Bem vindo(a)! <br /> Eu sou <span>Carlos Oliveira.</span>
         </S.Title>
         <S.Description>
           Onde a lógica exata encontra a criatividade. Crio soluções front-end robustas que fogem do

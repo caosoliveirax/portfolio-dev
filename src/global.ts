@@ -27,7 +27,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    font-family: "Inknut Antiqua", serif;
+    font-family: "Bricolage Grotesque", sans-serif;
     color: var(--text);
     text-align: center;
     min-height: 100dvh;

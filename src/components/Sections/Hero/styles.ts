@@ -39,10 +39,10 @@ export const HeroContainer = styled(Base.Section)`
 
 export const Title = styled.h1`
   font-size: clamp(3rem, 12vw, 6rem);
-  font-weight: 400;
+  font-weight: 500;
   color: var(--text);
   text-align: start;
-  line-height: 1.1;
+  line-height: 1;
   width: fit-content;
   max-width: 458px;
 
@@ -95,11 +95,11 @@ export const SocialLinks = styled.ul`
   gap: 8px;
 `
 
-export const SocialItem = styled.li`
+export const SocialItem = styled(Base.ItemNeo)`
   display: flex;
 `
 
-export const SocialLink = styled(Base.LinkNeo)`
+export const SocialLink = styled(Base.Link)`
   ${flex('row', 'center', 'center')};
   padding: 0;
 

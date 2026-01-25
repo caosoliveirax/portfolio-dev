@@ -42,9 +42,9 @@ export const BioCard = styled(Base.CardAbout)`
 `
 
 export const Text = styled(Base.Description)`
-  font-weight: 200;
+  font-weight: 400;
   color: var(--subtext);
-  line-height: 2.1;
+  line-height: 2;
   max-width: 400px;
 
   ${mq.desktop(css`
@@ -57,7 +57,7 @@ export const Text = styled(Base.Description)`
 
   em {
     font-style: normal;
-    font-weight: bold;
+    font-weight: 800;
     color: var(--text);
   }
 `
