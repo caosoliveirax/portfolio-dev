@@ -6,6 +6,7 @@ import Header from '@components/Layout/Header'
 import About from '@components/Sections/About'
 import Projects from '@components/Sections/Projects'
 import Contacts from '@components/Sections/Contacts'
+import Footer from '@components/Layout/Footer'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <About />
         <Projects />
         <Contacts />
+        <Footer />
       </ThemeProvider>
     </>
   )

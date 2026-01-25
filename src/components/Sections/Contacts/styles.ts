@@ -3,10 +3,13 @@ import { flex, mq } from '../../../styles/mixins'
 import * as Base from '../../../styles/base'
 
 export const ContactsContainer = styled(Base.Section)`
+  min-height: calc(100vh - 69px);
   overflow: hidden;
   justify-content: center;
+  padding-bottom: 40px;
 
   ${mq.tablet(css`
+    min-height: auto;
     padding: 24px;
   `)}
 `
