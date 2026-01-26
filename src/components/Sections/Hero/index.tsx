@@ -1,11 +1,12 @@
 import { FaLinkedin, FaGithubSquare } from 'react-icons/fa'
 import * as S from './styles'
 import profile from '../../../assets/profile.png'
+import { StatusBadge } from '@components/UI/StatusBadge'
 
 export const Hero = () => {
   return (
     <S.HeroContainer id="home">
-      <div className="wrapper-left">
+      <S.ApresentationWrapper>
         <S.Title>
           Bem vindo(a)! <br /> Eu sou <span>Carlos Oliveira.</span>
         </S.Title>
@@ -13,10 +14,11 @@ export const Hero = () => {
           Onde a lógica exata encontra a criatividade. Crio soluções front-end robustas que fogem do
           óbvio e cativam o usuário.
         </S.Description>
-      </div>
-      <div className="wrapper-right">
+      </S.ApresentationWrapper>
+      <S.ProfileWrapper>
         <S.ProfileImage src={profile} alt="Ícone de perfil" />
         <S.Subtitle>Engenheiro de Software</S.Subtitle>
+        <StatusBadge />
         <S.SocialLinks>
           <S.SocialItem>
             <S.SocialLink
@@ -37,7 +39,7 @@ export const Hero = () => {
             </S.SocialLink>
           </S.SocialItem>
         </S.SocialLinks>
-      </div>
+      </S.ProfileWrapper>
     </S.HeroContainer>
   )
 }

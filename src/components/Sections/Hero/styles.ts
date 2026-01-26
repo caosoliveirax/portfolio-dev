@@ -20,21 +20,21 @@ export const HeroContainer = styled(Base.Section)`
     ${flex('column', 'center', 'center')};
     gap: 20px;
   `)}
+`
 
-  .wrapper-left {
-    ${flex('column', 'center', 'start')};
-    width: auto;
+export const ApresentationWrapper = styled.div`
+  ${flex('column', 'center', 'start')};
+  width: auto;
 
-    ${mq.tablet(css`
-      align-items: center;
-    `)}
-  }
+  ${mq.tablet(css`
+    align-items: center;
+  `)}
+`
 
-  .wrapper-right {
-    ${flex('column', 'center', 'center')};
-    text-align: end;
-    gap: 8px;
-  }
+export const ProfileWrapper = styled.div`
+  ${flex('column', 'center', 'center')};
+  text-align: end;
+  gap: 12px;
 `
 
 export const Title = styled.h1`
