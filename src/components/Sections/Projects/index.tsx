@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import * as S from './styles'
 import { projects } from './content'
 import {
@@ -10,6 +10,41 @@ import {
 
 const Projects = () => {
   const carouselRef = useRef<HTMLDivElement>(null)
+
+  const [scrollState, SetScrollState] = useState({
+    isAtStart: true,
+    isAtEnd: false
+  })
+
+  const checkScrollPosition = () => {
+    if (carouselRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = carouselRef.current
+
+      const isAtStart = scrollLeft <= 5
+      const isAtEnd = scrollLeft + clientWidth >= scrollWidth - 5
+
+      SetScrollState({
+        isAtStart,
+        isAtEnd
+      })
+    }
+  }
+
+  useEffect(() => {
+    const carousel = carouselRef.current
+    if (carousel) {
+      carousel.addEventListener('scroll', checkScrollPosition)
+      checkScrollPosition()
+      window.addEventListener('resize', checkScrollPosition)
+    }
+
+    return () => {
+      if (carousel) {
+        carousel.removeEventListener('scroll', checkScrollPosition)
+      }
+      window.removeEventListener('resize', checkScrollPosition)
+    }
+  }, [])
 
   const handleScroll = (direction: 'left' | 'right') => {
     if (carouselRef.current) {
@@ -25,7 +60,12 @@ const Projects = () => {
     <S.ProjectsContainer id="projects">
       <S.SectionTitle>Meus Projetos</S.SectionTitle>
       <S.CarouselWrapper>
-        <S.NavButton $direction="left" onClick={() => handleScroll('left')}>
+        <S.NavButton
+          $direction="left"
+          onClick={() => handleScroll('left')}
+          $isHidden={scrollState.isAtStart}
+          aria-hidden={scrollState.isAtStart}
+        >
           <PiCaretLeftThin />
         </S.NavButton>
         <S.Carousel ref={carouselRef}>
@@ -67,7 +107,12 @@ const Projects = () => {
             </S.ProjectCard>
           ))}
         </S.Carousel>
-        <S.NavButton $direction="right" onClick={() => handleScroll('right')}>
+        <S.NavButton
+          $direction="right"
+          onClick={() => handleScroll('right')}
+          $isHidden={scrollState.isAtEnd}
+          aria-hidden={scrollState.isAtEnd}
+        >
           <PiCaretRightThin />
         </S.NavButton>
       </S.CarouselWrapper>

@@ -1,4 +1,4 @@
-import { PiCircle, PiPaletteThin, PiPersonSimpleCircleThin, PiTestTubeThin } from 'react-icons/pi'
+import { PiPaletteThin, PiPersonSimpleCircleThin, PiTestTubeThin } from 'react-icons/pi'
 import projectPreview1 from '../../../assets/preview-project-1.gif'
 
 export const projects = [
@@ -27,36 +27,6 @@ export const projects = [
       {
         name: 'Código Blindado',
         icon: <PiTestTubeThin />
-      }
-    ]
-  },
-  {
-    title: 'Projeto Futuro',
-    description: `Vivamus sagittis orci eleifend, sollicitudin justo vel, laoreet tortor. Nullam viverra, nunc id mollis viverra, mauris nulla ornare ante, ac rhoncus lorem turpis quis lorem. Curabitur eleifend purus consequat ornare volutpat. Etiam et sapien finibus, euismod libero ut, elementum augue. Phasellus at fermentum diam, a mollis turpis. Vestibulum finibus nunc sed dignissim molestie. Nullam ullamcorper, odio sit amet hendrerit tempor, mi orci aliquam lacus, ut ornare quam quam non leo.
-
-`,
-    liveUrl: '#',
-    githubUrl: '#',
-    preview: '#',
-    techs: [
-      { name: 'Tecnologia 1' },
-      { name: 'Tecnologia 2' },
-      { name: 'Tecnologia 3' },
-      { name: 'Tecnologia 4' },
-      { name: 'Tecnologia 5' }
-    ],
-    features: [
-      {
-        name: 'Característica 1',
-        icon: <PiCircle />
-      },
-      {
-        name: 'Característica 2',
-        icon: <PiCircle />
-      },
-      {
-        name: 'Característica 3',
-        icon: <PiCircle />
       }
     ]
   }

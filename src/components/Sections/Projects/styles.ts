@@ -49,7 +49,7 @@ export const CarouselWrapper = styled.div`
   }
 `
 
-export const NavButton = styled.button<{ $direction: 'left' | 'right' }>`
+export const NavButton = styled.button<{ $direction: 'left' | 'right'; $isHidden?: boolean }>`
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -57,9 +57,14 @@ export const NavButton = styled.button<{ $direction: 'left' | 'right' }>`
   color: var(--text);
   background-color: transparent;
   border: none;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition:
+    box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.3s;
   cursor: pointer;
   z-index: 20;
+  opacity: ${({ $isHidden }) => ($isHidden ? 0 : 1)};
+  pointer-events: ${({ $isHidden }) => ($isHidden ? 'none' : 'auto')};
 
   ${mq.desktop(css`
     display: none;
@@ -76,10 +81,14 @@ export const NavButton = styled.button<{ $direction: 'left' | 'right' }>`
   }
 
   &:hover {
-    transform: translateY(-55%) scale(1.1);
-    svg {
-      box-shadow: 0px 2px 0px var(--text);
-    }
+    ${({ $isHidden }) =>
+      !$isHidden &&
+      css`
+        transform: translateY(-55%) scale(1.1);
+        svg {
+          box-shadow: 0px 2px 0px var(--text);
+        }
+      `}
   }
 
   &:active {
