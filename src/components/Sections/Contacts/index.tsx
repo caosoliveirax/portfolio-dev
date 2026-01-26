@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import {
   PiClock,
   PiEnvelopeThin,
@@ -6,9 +7,7 @@ import {
   PiMapPin,
   PiWhatsappLogoThin
 } from 'react-icons/pi'
-
 import * as S from './styles'
-import { useEffect, useState } from 'react'
 
 const Contacts = () => {
   const [time, setTime] = useState(new Date())

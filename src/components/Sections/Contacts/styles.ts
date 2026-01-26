@@ -90,7 +90,7 @@ export const InfoBar = styled.div`
   border-top: 3px solid var(--text);
 
   span {
-    font-size: clamp(0.85rem, 3vw, 1.15rem);
+    font-size: clamp(0.8rem, 3vw, 1.15rem);
     font-weight: 500;
     display: flex;
     align-items: center;

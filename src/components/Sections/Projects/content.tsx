@@ -1,5 +1,5 @@
 import { PiPaletteThin, PiPersonSimpleCircleThin, PiTestTubeThin } from 'react-icons/pi'
-import projectPreview1 from '../../../assets/preview-project-1.gif'
+import projectPreview1 from '../../../assets/preview1.gif'
 
 export const projects = [
   {
