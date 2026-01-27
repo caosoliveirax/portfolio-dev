@@ -1,69 +1,84 @@
-# React + TypeScript + Vite
+# Portfólio Neo Brutalist V1
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> "Onde a lógica exata encontra a criatividade."
 
-Currently, two official plugins are available:
+![Banner do Projeto](public/og-image.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🔗 [Acesse o Portfólio Online (Vercel)](https://carlos-oliveira.vercel.app/)
 
-## Expanding the ESLint configuration
+Portfólio pessoal desenvolvido com foco em identidade visual forte (**Neo Brutalism / Soft Brutalism**), arquitetura de componentes escalável e alta performance.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+O objetivo deste projeto foi criar uma experiência visual única sem sacrificar a velocidade de carregamento e a acessibilidade.
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## ⚡ Destaques de Engenharia & Performance
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
-```
+Este projeto prioriza o uso de funcionalidades nativas do navegador e código limpo em vez de depender de bibliotecas pesadas.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 🟢 Score Lighthouse (Mobile)
+- **Performance:** 97/100
+- **SEO:** 100/100
+- **Acessibilidade:** 98/100
+- **Práticas Recomendadas:** 100/100
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x';
-import reactDom from 'eslint-plugin-react-dom';
+### 🧠 Decisões Técnicas
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
-```
+- **Status Badge com Intl API:** Em vez de importar bibliotecas de data (como moment.js ou date-fns) que aumentariam o bundle, utilizei a `Intl.DateTimeFormat` nativa do JavaScript. Isso permite calcular o fuso horário local (São Paulo) e definir o status de disponibilidade em tempo real com **zero custo de performance**.
+- **Gerenciamento de Estado de Scroll:** Implementação de lógica reativa com React Hooks (`useRef` e `useEffect`) para monitorar a posição do carrossel e controlar a visibilidade dos botões de navegação, garantindo que o usuário só veja controles interativos quando necessário.
+- **Componentização Atômica:** Separação estrita de responsabilidades. Cada componente possui sua lógica (`index.tsx`), estilização isolada (`styles.ts`) e dados (`content.tsx`), o que facilita a manutenção e escalabilidade do código.
+- **Arquitetura CSS-in-JS:** Uso de `Styled Components` com temas globais e *factory functions* (Mixins) para padronizar a identidade visual Neo Brutalista (sombras rígidas, bordas grossas) de forma consistente em toda a aplicação.
+
+---
+
+## 🛠 Tech Stack
+
+### Core
+- **React 18**
+- **TypeScript** (Tipagem estrita)
+- **Vite** (Build tool de alta performance)
+
+### Estilização & Design System
+- **Styled Components**
+- **Theming** (Tokens de design globais)
+- **Mixins Personalizados** (Abstração de padrões visuais repetitivos)
+
+### Qualidade de Código (QA)
+- **ESLint & Prettier** (Padronização de código)
+
+---
+
+## 🚀 Como rodar localmente
+
+### Clone o repositório:
+
+    git clone https://github.com/caosoliveirax/portfolio-dev.git
+    cd portfolio-dev
+
+### Instale as dependências:
+
+    npm install
+
+### Inicie o servidor de desenvolvimento:
+
+    npm run dev
+
+Acesse **http://localhost:5173** no seu navegador.
+
+---
+
+## 🗺️ Roadmap & Melhorias Futuras
+
+Este projeto está em constante evolução. As próximas atualizações focarão em expansão de conteúdo e refinamento da experiência do usuário (UX).
+
+- [ ] **Dynamic Theme Engine (Dark/Light Mode):**
+  - Implementação de troca de tema automática baseada no horário do usuário (utilizando a mesma lógica de `Intl API` já criada).
+  - Toggle manual para controle do usuário.
+- [ ] **Enriquecimento de UI:** Adição de mais elementos decorativos para preencher espaços negativos em telas grandes (Desktop).
+- [ ] **Novos Projetos:** Integração de novos cases e estudos recentes.
+- [ ] **Testes E2E:** Implementação de Cypress para garantir a integridade dos fluxos críticos (navegação e links).
+
+---
+
+Desenvolvido por [Carlos Oliveira](https://www.linkedin.com/in/carlos-oliveira-044552148) 🚀
+   
