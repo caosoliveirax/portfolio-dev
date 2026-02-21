@@ -37,7 +37,7 @@ const Contacts = () => {
         </S.Text>
         <S.LinksGrid>
           <S.LinkItem>
-            <S.ContactLink href="mailto:caosoliveiraxd@gmail.com">
+            <S.ContactLink href="mailto:kaduchaos18@gmail.com">
               <PiEnvelopeThin />
               Envie um E-mail
             </S.ContactLink>
